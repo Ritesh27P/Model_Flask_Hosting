@@ -1,7 +1,9 @@
 from flask import Flask, render_template, request, url_for
 import tensorflow as tf
 app = Flask(__name__)
+import os 
 
+PORT = os.environ['PORT'] or 3000;
 model = tf.keras.models.load_model('./Heart_Prediction_model_1.h5')
 @app.route('/')
 def home():
@@ -14,4 +16,4 @@ def home():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port=PORT)
