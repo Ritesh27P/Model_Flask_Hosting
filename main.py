@@ -28,5 +28,10 @@ def heart():
     value = pred[0][0]
     return {'value': float(value)}
 
+@app.route('/disease', methods=['POST'])
+def disease():
+    data = request.json['symptoms']
+    
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=PORT)
